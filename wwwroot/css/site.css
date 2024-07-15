@@ -1,0 +1,93 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+
+input[type=submit] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 4px;
+    width: 50%;
+    background-color: #4BB543;
+    border-radius: 30px;
+}
+
+input[type=text] {
+    width: 50%;
+    margin-bottom: 10px;
+    padding: 5px;
+    display: block;
+}
+
+    input[type=text]:focus {
+        background-color: whitesmoke;
+    }
+
+.enterRemove {
+    position: relative;
+    left: 23%;
+    font-family: sans-serif;
+}
+
+.fridgeContents {
+    margin-top: 10px;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    font-family: monospace;
+    width: 100%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+    .fridgeContents thead tr {
+        background-color: darkgray;
+        color: black;
+        text-align: center;
+    }
+
+    .fridgeContents th, td {
+        padding: 12px 15px;
+        text-align: center;
+    }
+
+    .fridgeContents tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        .fridgeContents tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+#itemNeeded {
+    position: relative;
+    top: 20px;
+    left: 30%;
+    width: 45%;
+}
+
+.buttonForRemoval {
+    border-radius: 1px;
+    background-color: darkgrey;
+    position: relative;
+    top: -18px;
+    left: 99.5px;
+    padding: 5px;
+    width: 100px;
+    border: none;
+}

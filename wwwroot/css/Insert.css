@@ -1,0 +1,102 @@
+﻿:root {
+    --green: #27ae60;
+    --black: #333;
+    --white: #fff;
+}
+
+
+.btn {
+    display: block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 0.5rem;
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+}
+
+
+.edit-btn {
+    display: block;
+    cursor: pointer;
+    background: rgb(84, 121, 206);
+    color: var(--white);
+    text-align: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    border-radius: .5rem;
+    padding: 0.5rem 0.5rem;
+    text-decoration: none;
+}
+
+.remove-btn {
+    width: 25%;
+    cursor: pointer;
+    padding: 6px 20px;
+    border-radius: 10px;
+    background: rgba(148, 22, 22, 0.591);
+    color: var(--white);
+    cursor: pointer;
+    border: 1px solid var(--friargray-color);
+}
+
+.save-btn {
+    display: block;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    border-radius: .5rem;
+    margin-top: 1rem;
+    padding: 0.5rem 0.5rem;
+    background: var(--green);
+    color: var(--white);
+    text-align: center;
+}
+
+
+.btn:hover {
+    background: var(--black);
+}
+
+.add-container {
+    max-width: 1200px;
+    padding: 1 rem;
+    margin: 0 auto;
+}
+
+.admin-product-form-container.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.admin-product-form-container form {
+    max-width: 37rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    margin-top: 20px;
+}
+
+    .admin-product-form-container form h3 {
+        text-transform: uppercase;
+        color: var(--black);
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .admin-product-form-container form .box {
+        width: 100%;
+        border-radius: .5rem;
+        padding: 1.2rem 1.5rem;
+        margin: 1rem 0;
+        text-transform: none;
+    }
