@@ -1,0 +1,228 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using FutureFridgesCW.Models
+@using Microsoft.AspNetCore.Mvc.RazorPages;
+@using Microsoft.EntityFrameworkCore;
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FutureFridges</title>
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Insert.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Register.css" asp-append-version="true" />
+
+
+    <!-- Boxicons icons Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo"></div>
+    </header>
+
+    <!-- Start of sidebar -->
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <i class='bx bxl-firebase'></i>
+
+                <div class="logo_name">FutureFridges</div>
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+
+        <ul class="nav_list">
+            <li>
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Search...">
+                <span class="tooltip">Search</span>
+            </li>
+            
+            
+            
+                     <li>
+                    <a asp-page="/Index">
+                    <i class='bx bx-home'></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+                 </li>
+                
+            
+            
+
+
+            <!-- Head Chef, Driver & Chef -->
+           
+                
+            @if (User.IsInRole("Headchef") || User.IsInRole("Chef") || User.IsInRole("Driver"))
+            {
+                <li>
+                    <a asp-page="/Insert">
+                                <i class='bx bx-plus'></i>
+                                <span class="links_name">Insert</span>
+                            </a>
+                            <span class="tooltip">Insert</span>
+                        </li>}
+
+                @if (User.IsInRole("Headchef") || User.IsInRole("Chef"))
+                {
+
+                    <!-- Head Chef & Chef -->
+                    <li>
+                        <a asp-page="/Remove">
+                            <i class='bx bx-minus'></i>
+                            <span class="links_name">Remove</span>
+                        </a>
+                        <span class="tooltip">Remove</span>
+                    </li>
+                    <li>
+                        <a asp-page="/Products">
+                                <i class='bx bx-list-ul'></i>
+                                <span class="links_name">All Items</span>
+                            </a>
+                            <span class="tooltip">All Item</span>
+                        </li>}
+                    
+                    
+            
+
+            <!-- Head Chef-->
+            @{
+                 if (SignInManager.IsSignedIn(User) && User.IsInRole("Headchef"))
+                {
+                    <li>
+                        <a href="#">
+                            <i class='bx bx-chat'></i>
+                            <span class="links_name">Messages</span>
+                        </a>
+                        <span class="tooltip">Messages</span>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class='bx bxs-report'></i>
+                            <span class="links_name">Reports</span>
+                        </a>
+                        <span class="tooltip">Reports</span>
+                    </li>
+                     <li>
+                        <a asp-page="/Order">
+                            <i class='bx bx-cart-alt'></i>
+                            <span class="links_name">Order</span>
+                        </a>
+                        <span class="tooltip">Order</span>
+                    </li>
+                    <li>
+                        <a asp-page="/Supplier">
+                            <i class="fas fa-industry"></i>
+                            <span class="links_name">Supplier</span>
+                        </a>
+                        <span class="tooltip">Supplier</span>
+                    </li>
+                }
+            }
+           
+            @*
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Settings</span>
+                </a>
+                <span class="tooltip">Settings</span>
+            </li>
+            
+            <li>
+                <a asp-page="/AddSupplier">
+                    <i class="fas fa-industry"></i>
+                    <span class="links_name">Supplier</span>
+                </a>
+                <span class="tooltip">Supplier</span>
+            </li>
+            *@
+
+            <!-- Manager -->
+
+            @{
+                if (SignInManager.IsSignedIn(User) && User.IsInRole("Manager"))
+                {
+                <li>
+                    <a asp-page="/Dashboard">
+                        <i class='bx bx-grid-alt'></i>
+                        <span class="links_name">Dashboard</span>
+                    </a>
+                    <span class="tooltip">Dashboard</span>
+                </li>
+                 <li>
+                    <a asp-page="/AllUsers">
+                        <i class='bx bx-user'></i>
+                        <span class="links_name">User</span>
+                    </a>
+                    <span class="tooltip">User</span>
+                </li>
+                <li>
+                    <a asp-area="Identity" asp-page="/Account/Register">
+                        <i class='bx bxs-user-plus'></i>
+                        <span class="links_name">Register User</span>
+                    </a>
+                    <span class="tooltip">Register User</span>
+                </li>
+                 <li>
+                    <a asp-area="Identity" asp-page="/Account/Login">
+                        <i class='bx bxs-user-plus'></i>
+                        <span class="links_name">Login </span>
+                        </a>
+                </li>
+                }
+            }
+          
+            <!-- End of Manager -->
+        </ul>
+
+        
+        <div class="profile-content">
+            <div class="profile">
+                <div class="profile-details">
+                    <img src="~/images/headchef.webp" alt="">
+                    <div class="name-job">
+
+                        <div class="name">@UserManager.GetUserName(User)</div>
+                        <div class="job"> lol</div>
+                        
+
+                    </div>
+                </div>
+                
+                {
+
+                    <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                        <button id="logout" type="submit"><i class='bx bx-log-out' id="log-out"></i></button>
+                    </form>
+
+
+
+                    @*<a class="Log">
+                <i class='bx bx-log-out' id="log-out"></i>
+                </a>*@
+
+            </div>
+        </div>
+    </div>
+    <!-- End of sidebar -->
+    <div class="home-content">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/script.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿@page
+@model FutureFridgesCW.Pages.AddSupplierModel
+@{
+}
+
+<div class="pageTitle"> <h1>Add Supplier</h1> </div>
+
+      <div class="container">
+      <div class="content">
+        <form method="post">
+          <div class="user-details">
+            <div class="input-box">
+                    <span class="details"><label asp-for="@Model.AddingSupplier.SupplierId"></label></span>
+                    <input placeholder="Supplier ID" asp-for="@Model.AddingSupplier.SupplierId" readonly>
+            </div>
+            <div class="input-box">
+                    <span class="details"><label asp-for="@Model.AddingSupplier.SupplierName"></label></span>
+                    <input placeholder=" Enter Supplier's Name" asp-for="@Model.AddingSupplier.SupplierName" required>
+
+            </div>
+            <div class="input-box">
+                    <span class="details"><label asp-for="@Model.AddingSupplier.SupplierEmail"></label></span>
+                    <input placeholder=" Enter Supplier's Email" asp-for="@Model.AddingSupplier.SupplierEmail" required>
+
+            </div>
+            <div class="input-box">
+                    <span class="details"><label asp-for= "@Model.AddingSupplier.SupplierPhone"></label></span>
+                    <input placeholder=" Enter Supplier's Number" asp-for="@Model.AddingSupplier.SupplierPhone" required>
+            </div>
+            <div class="input-box">
+                    <span class="details"><label asp-for= "@Model.AddingSupplier.SupplierAddress"></label></span>
+                    <input  placeholder=" Enter Supplier's Address" asp-for="@Model.AddingSupplier.SupplierAddress" required>
+
+            </div>
+          </div>
+
+          <div class="button">
+            <input type="submit" value="Update">
+          </div>
+
+        </form>
+      </div>
+    </div>

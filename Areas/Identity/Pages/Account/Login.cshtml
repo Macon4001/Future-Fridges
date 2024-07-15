@@ -1,0 +1,76 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+
+    <title>Login landing page</title>
+</head>
+<body class="color">
+
+    <section class="side">
+        <img src="~/images/eatingwell-01.png.png" />
+    </section>
+
+<section class="main">
+    <div class="login-container">
+        <p class="title">Welcome to FFsmart Fridge.</p>
+        <div class="separator"></div>
+        <p class="welcome-message">Please, provide login credential to proceed </p>
+
+        <form id="account" method="post" class="login-form">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-controller">
+                     <!-- <label asp-for="Input.Email"></label> -->
+                     <input asp-for="Input.Email" class="form-controller" placeholder="Email" autocomplete="username" aria-required="true" />
+                     <i class="fas fa-user"></i>
+                     <span asp-validation-for="Input.Email" class="text-danger"></span>
+                 </div>
+
+                  <div class="form-controller">
+                    <!-- <label asp-for="Input.Password"></label> -->
+                    <input asp-for="Input.Password" class="form-controller" placeholder="Password" />
+                    <i class="fas fa-lock"></i>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-controller">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" class="form-controller" />
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit">Log in</button>
+
+                <div class="form-controller">
+                    <p>
+                        <a id="forgot-password" class="bottom-text" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+
+</body>
+</html>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+                            
+                       

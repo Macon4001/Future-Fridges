@@ -1,0 +1,70 @@
+﻿@page
+@model FutureFridgesCW.Pages.DashboardModel
+@{
+}
+<div class="text"> Users </div>
+<section class="products">
+    <div class="products-list">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User Roles</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <tbody>
+                    @foreach (var roles in Model.roles)
+                    {
+                    <tr>
+                        <td>@roles.Id</td>
+                        <td>@roles.Name</td>
+                        <td><a class="button" asp-page-handler="Delete" asp-route-id="@roles.Id">Delete Role</a></td>
+
+                    </tr>
+                    }
+            </tbody>
+            <tr>
+                <td>
+                    <form class="content" method="post" asp-page-handler="Add">
+                        <input asp-for="RoleNameToAdd" />
+                        <input class="button" value="Add New Role" type="submit" asp-page="/Dashboard" />
+                    </form>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="products-list">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Admin Dashboard</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var users in Model.Users)
+                {
+                    <tr>
+
+                        <td> @users.Id </td>
+                        <td> @users.Email</td>
+                        <td>
+                            <form class="content" method="post" asp-page-handler="Update" asp-route-id="@users.Id">
+                                <input asp-for="UpdatePassword" />
+                                <input type="submit" value="Update Password" class="button" />
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

@@ -1,0 +1,53 @@
+﻿@page
+@model FutureFridgesCW.Pages.SupplierModel
+@{
+}
+
+
+<div class="pageTitle"> <h1>Supplier</h1>   </div>
+<div class="add-container">
+
+    <a asp-page="AddSupplier" > <span class=" save-btn">New Supplier</span> </a>
+
+    <section class="products">
+        <div class="products-list">
+            <table class="table table-sm table-striped table-sortable" style="table-layout: fixed;">
+                <thead>
+                    <tr>
+                        <th data-sort="int">Supplier ID</th>
+                        <th data-sort="string">Supplier Name</th>
+                        <th> Email</th>
+                        <th>Address</th>
+                        <th>Phone Number</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                @foreach (var action in Model.Suppliers)
+                {
+                    
+                 <tr>
+                    <td>@action.SupplierId</td>
+                    <td>@action.SupplierName</td>
+                    <td>@action.SupplierEmail</td>
+                    <td>@action.SupplierPhone</td>
+                    <td>@action.SupplierAddress</td>
+                    <td>
+                            <a class="edit-btn" asp-route-id="@action.SupplierId" asp-page="/AddSupplier"> <i class="fas fa-edit"></i> Update </a>
+                            <a class="edit-btn" asp-route-id="@action.SupplierId" asp-page-handler="Delete">  <i class="fas fa-edit"></i> Delete </a>
+                    </td>
+
+                    </tr>
+                
+                
+                }
+
+            </table>
+        </div>
+    </section>
+
+</div>
+
+
+    <script src="/js/tablesort.min.js"></script>
+  <script>document.querySelector('.table-sortable').tsortable()</script>

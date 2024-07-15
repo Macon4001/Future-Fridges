@@ -1,0 +1,38 @@
+﻿@page
+@model FutureFridgesCW.Pages.RemoveModel
+@{
+}
+<div class="add-container">
+    <section class="products">
+        <div class="products-list">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>product name</th>
+                        <th>Product quantity</th>
+                        <th>product expiry</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var action in Model.Products)
+                    {
+
+                        <tr>
+                            <td>@action.ProductName</td>
+                            <td>@action.quantity</td>
+                            <td>@action.expiryDate</td>
+                            <td>
+                                <a class="edit-btn" asp-route-id="@action.ProductId" asp-page="/Insert"> <i class="fas fa-edit"></i> Update </a>
+                                <a class="edit-btn" asp-route-id="@action.ProductId" asp-page-handler="Delete">  <i class="fas fa-edit"></i> Delete </a>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+

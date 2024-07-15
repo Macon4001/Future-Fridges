@@ -1,0 +1,37 @@
+﻿@page
+@model FutureFridgesCW.Pages.InsertModel
+@{
+
+}
+
+<div class="admin-product-form-container">
+    <form method="post" asp-page="/Insert">
+        <h3>add a new product</h3>
+
+        <label asp-for="@Model.productGoingIntoFridge.ProductId"></label>
+        <input type="text" asp-for="@Model.productGoingIntoFridge.ProductId" readonly />
+
+
+
+        <label asp-for="@Model.productGoingIntoFridge.ProductName"></label>
+        <input type="text" placeholder="enter product name" asp-for="@Model.productGoingIntoFridge.ProductName" class="box">
+
+
+
+        <label asp-for="@Model.productGoingIntoFridge.quantity"></label>
+        <input type="number" placeholder="enter product quantity" asp-for="@Model.productGoingIntoFridge.quantity class=" box">
+
+        <label asp-for="@Model.productGoingIntoFridge.expiryDate"></label>
+        <input type="text" placeholder="enter product expiry" asp-for="@Model.productGoingIntoFridge.expiryDate" class="box">
+        @{
+            if (Model.Save)
+            {
+                <input type="submit" class="btn" value="Store">
+            }
+            else
+            {
+                <input type="submit" class="btn" asp-page-handler="Update" value="Store">
+            }
+        }
+    </form>
+</div>
